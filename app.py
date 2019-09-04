@@ -1,26 +1,31 @@
 from flask import Flask
-from datetime import datetime
-import re
-
 app = Flask(__name__)
-
 @app.route("/")
 def home():
-    return "Hello, Flask!"
+    return """
+    <h1>Hello user</h1>
+    <img src="https://image.flaticon.com/icons/svg/817/817397.svg" height="250" width="250">
+    <h1> Hi my name is Lorraine, click the tabs to know what I like and for logos :) enjoy.
+    <p><a href="/sida2"title ="Síða 2">Síða 2</a> | <a href="/sida3"title ="Síða 3">Síða 3</a></p>
+    """
 
-@app.route("/hello/<name>")
-def hello_there(name):
-    now = datetime.now()
-    formatted_now = now.strftime("%A, %d %B, %Y at %X")
+@app.route("/sida2")
+def sida2():
+    return"""
+    <h1>Hello user</h1>
+    <img src="https://image.flaticon.com/icons/svg/2033/2033324.svg" height="250" width="250">
+    <h1> I really love ice cream. Click the tabs to see more what I like :)
+    <p><a href="/"title ="Síða 1">Síða 1</a> | <a href="/sida3"title ="Síða 3">Síða 3</a></p>
+    """
+@app.route("/sida3")
+def sida3():
+    return"""
+    <h1>Hello user</h1>
+    <img src="https://image.flaticon.com/icons/svg/2056/2056060.svg" height="250" width="250">
+    <h1> I love strawberry shake
+    <p> Thanks for checking out my website ;)
+    <p><a href="/"title ="Síða 1">Síða 1</a> | <a href="/sida2"title ="Síða 2">Síða 2</a></p>
+    """
 
-    # Filter the name argument to letters only using regular expressions. URL arguments
-    # can contain arbitrary text, so we restrict to safe characters only.
-    match_object = re.match("[a-zA-Z]+", name)
-
-    if match_object:
-        clean_name = match_object.group(0)
-    else:
-        clean_name = "Friend"
-
-    content = "Hello there, " + clean_name + "! It's " + formatted_now
-    return content
+if __name__ == "__main__":
+	app.run(debug=True)
