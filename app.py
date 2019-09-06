@@ -7,7 +7,7 @@ def home():
     return """
     <h1>Hello user</h1>
     <img src="https://image.flaticon.com/icons/svg/817/817397.svg" height="250" width="250">
-    <h1> Hi my name is Lorraine, click the tabs to know what I like and for more logos :) enjoy.
+    <h1> Hi, click the tabs to know what I like and for more logos :) enjoy.
     <p><a href="/sida2"title ="Síða 2">Síða 2</a> | <a href="/sida3"title ="Síða 3">Síða 3</a></p>
     """
 
